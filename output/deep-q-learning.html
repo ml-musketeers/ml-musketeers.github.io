@@ -73,6 +73,7 @@ Deep Q-learning</title>
         <ul class="list">
           <li><a href="https://ml-musketeers.github.io/pages/about.html#about">About</a></li>
           <li><a href="https://ml-musketeers.github.io/pages/contact.html#contact">Contact</a></li>
+          <li><a href="https://ml-musketeers.github.io/pages/links.html#links">Links</a></li>
 
         </ul>
       </nav>
@@ -96,6 +97,9 @@ Deep Q-learning</title>
         >
         <a href="https://ml-musketeers.github.io/pages/contact.html#contact"
           >Contact</a
+        >
+        <a href="https://ml-musketeers.github.io/pages/links.html#links"
+          >Links</a
         >
          <!--       <a href="https://ml-musketeers.github.io/feeds/all.atom.xml"> Atom </a>
  -->
@@ -1228,7 +1232,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding: 0 5px
  .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Deep-Q-learning">Deep Q-learning<a class="anchor-link" href="#Deep-Q-learning">&#182;</a></h1><h2 id="Reminder:-Tabular-Q-learning">Reminder: Tabular Q-learning<a class="anchor-link" href="#Reminder:-Tabular-Q-learning">&#182;</a></h2><p>Q-learning is a Temporal Difference (TD) control algorithm, i.e. action-values are updated after every time step in which action $A$ is taken, and the agent transitions from state $S$ to $S^\prime$ with a reward $R$:</p>
+<h1 id="Deep-Q-learning">Deep Q-learning<a class="anchor-link" href="#Deep-Q-learning">&#182;</a></h1><p>Yoyoyo</p>
+<h2 id="Reminder:-Tabular-Q-learning">Reminder: Tabular Q-learning<a class="anchor-link" href="#Reminder:-Tabular-Q-learning">&#182;</a></h2><p>Q-learning is a Temporal Difference (TD) control algorithm, i.e. action-values are updated after every time step in which action $A$ is taken, and the agent transitions from state $S$ to $S^\prime$ with a reward $R$:</p>
 $$ Q(S, A) \leftarrow Q(S, A) + \alpha \,\delta$$<p>where $\delta=\left[\mathrm{Target}\left(R, \gamma, Q, S^{\prime}\right) - Q(S, A)\right]$ is the "TD(0) update", a.k.a. "one-step TD update", and the TD target reads $\mathrm{Target}\left(R, \gamma, Q, S^{\prime}\right)=R_{t+1}+\gamma \max_a Q(S_{t+1}, a)$.</p>
 <p>Those incremental updates to the action-value function should converge to the optimal action-value function.</p>
 <h2 id="Deep-Q-Network-(DQN)">Deep Q-Network (DQN)<a class="anchor-link" href="#Deep-Q-Network-(DQN)">&#182;</a></h2><p>Q-learning with a neural network function approximation: the optimal action-value function $Q^*(s, a)$ is approximated using a Neural Net, the parameters $\theta$ of which are obtained by minimizing the following loss function: 

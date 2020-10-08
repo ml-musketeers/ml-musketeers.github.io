@@ -30,7 +30,7 @@ MENUITEMS = (('Archives', '/archives.html'),)
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
+RELATIVE_URLS = True
 MARKUP = ('md', 'ipynb')
 
 from pelican_jupyter import markup as nb_markup

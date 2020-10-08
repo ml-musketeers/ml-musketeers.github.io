@@ -12,8 +12,7 @@ Useful resources on RL, ML, & tech.
 
 Reinforcement Learning:
 
-* The bible of RL, "Reinforcement Learning:
-An Introduction" by Sutton and Barton: `<http://incompleteideas.net/book/bookdraft2017nov5.pdf>`_
+* The bible of RL, "Reinforcement Learning: An Introduction" by Sutton and Barton: `<http://incompleteideas.net/book/bookdraft2017nov5.pdf>`_
 * The RL specialization on Coursera: `<https://www.coursera.org/specializations/reinforcement-learning?>`_
 * A great blog post by Andrej Karphathy on Deep RL: `<http://karpathy.github.io/2016/05/31/rl/>`_
 
