@@ -28,3 +28,8 @@ Mostly you'll edit the `base.html` file in `themes/neat/static/templates`.
 3. Go to the `themes/neat/static/stylesheet` folder
 4. Edit the `style.less` and `variables.less` files
 5. run `lessc -clean-css style.less style.min.css` to generate the `style.min.css` file
+
+## TODO
+
+- [ ] Add Goodle Analytics support
+- [ ] Improve the notebook template

@@ -1237,13 +1237,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding: 0 5px
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Deep-Q-learning">Deep Q-learning<a class="anchor-link" href="#Deep-Q-learning">&#182;</a></h1><h2 id="Reminder:-Tabular-Q-learning">Reminder: Tabular Q-learning<a class="anchor-link" href="#Reminder:-Tabular-Q-learning">&#182;</a></h2><p>Q-learning is a Temporal Difference (TD) control algorithm, i.e. action-values are updated after every time step in which action $A$ is taken, and the agent transitions from state $S$ to $S^\prime$ with a reward $R$:</p>
-<p>$ Q(S, A) \leftarrow Q(S, A) + \alpha \,\delta$</p>
-<p>where $\delta=\left[\mathrm{Target}\left(R, \gamma, Q, S^{\prime}\right) - Q(S, A)\right]$ is the "TD(0) update", a.k.a. "one-step TD update", and the TD target reads $\mathrm{Target}\left(R, \gamma, Q, S^{\prime}\right)=R_{t+1}+\gamma \max_a Q(S_{t+1}, a)$.</p>
+$$ Q(S, A) \leftarrow Q(S, A) + \alpha \,\delta$$<p>where $\delta=\left[\mathrm{Target}\left(R, \gamma, Q, S^{\prime}\right) - Q(S, A)\right]$ is the "TD(0) update", a.k.a. "one-step TD update", and the TD target reads $\mathrm{Target}\left(R, \gamma, Q, S^{\prime}\right)=R_{t+1}+\gamma \max_a Q(S_{t+1}, a)$.</p>
 <p>Those incremental updates to the action-value function should converge to the optimal action-value function.</p>
-<h2 id="Deep-Q-Network-(DQN)">Deep Q-Network (DQN)<a class="anchor-link" href="#Deep-Q-Network-(DQN)">&#182;</a></h2><p>Q-learning with a neural network function approximation: the optimal action-value function $Q^*(s, a)$ is approximated using a Neural Net, the parameters $\theta$ of which are obtained by minimizing the following loss function: $L\left(\theta\right)=\mathbb{E}_{\left(s, a, r, s^{\prime}\right) \sim U(D)}\left[\left(r+\gamma \max _{a^{\prime}} Q\left(s^{\prime}, a^{\prime} ; \theta\right)-Q\left(s, a ; \theta\right)\right)^{2}\right]$</p>
+<h2 id="Deep-Q-Network-(DQN)">Deep Q-Network (DQN)<a class="anchor-link" href="#Deep-Q-Network-(DQN)">&#182;</a></h2><p>Q-learning with a neural network function approximation: the optimal action-value function $Q^*(s, a)$ is approximated using a Neural Net, the parameters $\theta$ of which are obtained by minimizing the following loss function: 
+ $$L\left(\theta\right)=\mathbb{E}_{\left(s, a, r, s^{\prime}\right) \sim U(D)}\left[\left(r+\gamma \max _{a^{\prime}} Q\left(s^{\prime}, a^{\prime} ; \theta\right)-Q\left(s, a ; \theta\right)\right)^{2}\right]$$</p>
 <p>Hence the parameters updates read:</p>
-<p>$\mathbf{w} \leftarrow \mathbf{w}+\alpha\left(R_{t+1}+\gamma \max_{a'} \hat{q}\left(S_{t+1}, a^{\prime}, \mathbf{w}\right)-Q\left(S_{t}, A_{t}, \mathbf{w}\right)\right) \nabla \hat{q}\left(S_{t}, A_{t}, \mathbf{w}\right)$ (Semi-gradient)</p>
-<p>$\mathbf{w} \leftarrow \mathbf{w}-\alpha\nabla L\left(S_{t}, A_{t}, \mathbf{w}\right)$  (standard gradient descent)</p>
+$$\mathbf{w} \leftarrow \mathbf{w}+\alpha\left(R_{t+1}+\gamma \max_{a'} \hat{q}\left(S_{t+1}, a^{\prime}, \mathbf{w}\right)-Q\left(S_{t}, A_{t}, \mathbf{w}\right)\right) \nabla \hat{q}\left(S_{t}, A_{t}, \mathbf{w}\right)$$<p>(Semi-gradient)</p>
+$$\mathbf{w} \leftarrow \mathbf{w}-\alpha\nabla L\left(S_{t}, A_{t}, \mathbf{w}\right)$$<p>(standard gradient descent)</p>
 <p>3 problems of a naive implementation of Deep Q-learning:</p>
 <ol>
 <li><strong>correlations in the sequence of observations</strong>: the next state $s_{t+1}$ depends on the current state $s_t$. This is a problem because the ML machinery depends on the i.i.d. hypothesis according to which the training set samples should, notably, be independent. </li>
@@ -1257,8 +1257,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding: 0 5px
 <li>Experience replay: randomize the observations (solves problems 1 and 2)</li>
 <li>Delayed, aggregated updates to the target values (solves problem 3)</li>
 </ul>
-<p>$L_{i}\left(\theta_{i}\right)=\mathbb{E}_{\left(s, a, r, s^{\prime}\right) \sim \textcolor{green}{U(D)}}\left[\left(r+\gamma \max _{a^{\prime}} Q\left(s^{\prime}, a^{\prime} ; \textcolor{purple}{\theta_{i}^{-}}\right)-Q\left(s, a ; \theta_{i}\right)\right)^{2}\right]$</p>
-<p>Compared to naive Q-learning with function approximation, DQN introduces <span style="color:green">experience replay</span> as a sampling mechanism, and <span style="color:purple">delayed updates to the target values</span> for the TD target definition.</p>
+$$L_{i}\left(\theta_{i}\right)=\mathbb{E}_{\left(s, a, r, s^{\prime}\right) \sim \color{green}{U(D)}}\left[\left(r+\gamma \max _{a^{\prime}} Q\left(s^{\prime}, a^{\prime} ; \color{purple}{\theta_{i}^{-}}\right)-Q\left(s, a ; \theta_{i}\right)\right)^{2}\right]$$<p>Compared to naive Q-learning with function approximation, DQN introduces <span style="color:green">experience replay</span> as a sampling mechanism, and <span style="color:purple">delayed updates to the target values</span> for the TD target definition.</p>
 <h2 id="Toy-example">Toy example<a class="anchor-link" href="#Toy-example">&#182;</a></h2><h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ul>
 <li><a href="http://karpathy.github.io/2016/05/31/rl/">Karpathy's blog article on policy learning</a> </li>
 <li><a href="../Course2_SampleBasedLearning/week_3_TemporalDifferenceControl/temporal_difference_control.md">Tabular Q-learning</a></li>
