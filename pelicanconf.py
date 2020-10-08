@@ -22,7 +22,7 @@ THEME = os.path.join(os.getcwd(), "themes", "neat")
 DEFAULT_LANG = 'en'
 
 SOCIAL = (('linkedin', 'https://www.linkedin.com/in/nthiebaut'),
-          ('github', 'https://github.com/nkthiebaut/'),
+          ('github', 'https://github.com/ml-musketeers/'),
           ('twitter', 'https://twitter.com/NicoThiebaut'),)
 
 MENUITEMS = (('Archives', '/archives.html'),)
