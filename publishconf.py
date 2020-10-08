@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'https://nkthiebaut.github.io'
+SITEURL = 'https://ml-musketeers.github.io'
 RELATIVE_URLS = False
 
 #FEED_ALL_ATOM = 'feeds/all.atom.xml'
@@ -20,5 +20,5 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
-DISQUS_SITENAME = "data4thought"
+# DISQUS_SITENAME = "data4thought"
 GOOGLE_ANALYTICS = "UA-106456784-1"
