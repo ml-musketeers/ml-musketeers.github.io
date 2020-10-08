@@ -8,6 +8,8 @@ Built following [this blog post](https://www.dataquest.io/blog/how-to-setup-a-da
 
 ## Setup
 
+⚠️ This configuration doesn't support Python 3.8+ yet.
+
 ## Automated publishing with MAKE
 
 (from the repo root folder)
@@ -31,5 +33,6 @@ Mostly you'll edit the `base.html` file in `themes/neat/static/templates`.
 
 ## TODO
 
-- [ ] Add Goodle Analytics support
-- [ ] Improve the notebook template
+- [ ] Add Goodle Analytics support.
+- [ ] Improve the notebook template.
+- [ ] Fix the Python 3.8+ bug.
